@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
+    "crispy_forms",
+    "django_summernote",
 ]
 
 MIDDLEWARE = [
@@ -51,6 +53,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'blogpro.urls'
+
+# Django Debug Toolbar https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+
 
 TEMPLATES = [
     {
@@ -122,7 +130,28 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_URL = '/static/'
-# STATICFILES_DIRS=[os.path.join(BASE_DIR,'assets/static')]
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'assets/media')
+STATIC_URL = "/static/"
+
+# Location of static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+
+# Media paths
+
+# Base url to serve media files
+MEDIA_URL = "/media/"
+
+# Path where media is stored
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+X_FRAME_OPTIONS = "SAMEORIGIN"
